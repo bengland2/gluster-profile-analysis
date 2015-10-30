@@ -4,17 +4,8 @@ tools for converting gluster profile data into spreadsheet format and javascript
 ## Introduction
 
 The extract-glvolprof.py program is meant to assist with visualizing the performance of
-a gluster volume, using the gluster volume profile command.  One of key concepts in Gluster is the FOP (File Operation).  This is the unit of work passed from the application down through the Gluster translator stack until it reaches the storage device.  Important FOP Types include:
+a gluster volume, using the gluster volume profile command.  One of key concepts in Gluster is the FOP (File Operation).  This is the unit of work passed from the application down through the Gluster translator stack until it reaches the storage device.  FOP Types for file creation, reading, writing, and many others are observable with these tools.
 
-* CREATE - create a file
-* UNLINK - delete a file
-* OPEN - open a file for read/write access
-* WRITE - write data to a file
-* READ - read data from a file
-* LOOKUP - lookup a file
-* MKDIR - create a directory
-* RMDIR - remove a directory
-* others TBS
 
 Statistic types produced per FOP type by these scripts include:
 
@@ -25,6 +16,8 @@ Statistic types produced per FOP type by these scripts include:
 - maximum latency
 
 Where all latencies are in units of microseconds.
+
+The profiling tools consist of a collection and extraction script.  Typically you run the collection script to collect the profile data on a Gluster client or server, and then copy the file to your local system to run the extraction tool, which is just a python text processing script and should run anywhere.
 
 These tools produce a subdirectory containing java-script graphs that can be viewed with a web browser, as well as .csv-format files that can be loaded into a spreadsheet, for example.  BTW, not everything works: e.g. the "Save as Image" button does not. Note also that the layout is crucial: the CSV subdirectory contains a
 symlink <code>static</code>, which points to the <code>static</code> subdirectory in the
@@ -92,3 +85,54 @@ script printed, pointing to gvp-client-graphs.html
 # implementation notes
 
 In order to take advantage of pbench javascript graphing, then column 1 in the .csv is always the timestamp in milliseconds when that sample took place. This can be disabled by defining the environment variable SKIP\_PBENCH\_GRAPHING.
+
+# appendix: detailed list of FOPs
+
+Here are all the file operation types that Gluster supports upstream as of November 2015.  Looking for developers to correct descriptions here.  The ones that are typically encountered are marked with the letter C:
+
+ACCESS - ?
+CREATE - C - create a file
+DISCARD - support for trim?
+ENTRYLK - lock a directory given its pathname?
+FALLOCATE - allocate space for file without actually writing to it
+FENTRYLK - lock a file given its handle
+FGETXATTR - C - get named extended attribute value for a file (handle)
+FINODELK - C - lock a file/directory for write/read
+FLUSH - ensure all written data is persistently stored
+FREMOVEXATTR - remove a named extended attribute from a file handle
+FSETATTR - set value of metadata field (which ones?) for a file (handle)
+FSETXATTR - C - set value of a named extended attribute for a file handle
+FSTAT - get standard metadata about a file given its file handle
+FSYNC - C - ensure all written data for a file is persistently stored
+FSYNCDIR - ensure all directory entries in directory are persistently stored
+FTRUNCATE - set file size to specified value, deallocating data beyond this point
+FXATTROP - C - used by AFR replication?
+GETXATTR - get value of named extended attribute
+INODELK - lock a directory for write or for read
+LINK - create a hard link
+LK - lock?
+LOOKUP - C - lookup file within directory
+MKDIR - C - create directory
+MKNOD - create device special file
+OPEN - C - open a file
+OPENDIR - C - open a directory (in preparation for READDIR)
+RCHECKSUM - ?
+READ - C - read data from a file
+READDIR - C - read directory entries from a directory
+READDIRP - C - read directory entries with standard metadata for each file (readdirplus)
+READLINK - get the pathname of a file that a symlink is pointing to
+RELEASE - C - let go of file handle (similar to close)
+RELEASEDIR - let go of directory handle (similar to close)
+REMOVEXATTR - remove a named extended attribute from a pathname?
+RENAME - C - rename a file
+RMDIR - C - remove a directory (assumes it is already empty)
+SETATTR - set field in standard file metadata for pathname
+SETXATTR - C - set named extended attribute value for file given pathname
+STAT - C - get standard metadata for file given pathname
+STATFS - get metadata for the filesystem
+SYMLINK - create a softlink to specified pathname
+TRUNCATE - truncate file at pathname to specified size
+UNLINK - C - delete file
+WRITE - C - write data to file
+XATTROP - ?
+ZEROFILL - write zeroes to the file in specified offset range
