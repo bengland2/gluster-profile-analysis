@@ -1,6 +1,3 @@
-# gluster-profile-analysis
-tools for converting gluster profile data into spreadsheet format and javascript graphs
-
 ## Introduction
 
 The extract-glvolprof.py program is meant to assist with visualizing the performance of
@@ -19,9 +16,21 @@ Where all latencies are in units of microseconds.
 
 The profiling tools consist of a collection and extraction script.  Typically you run the collection script to collect the profile data on a Gluster client or server, and then copy the file to your local system to run the extraction tool, which is just a python text processing script and should run anywhere.
 
+To install, after cloning this repo, pull this file into the same directory:
+
+\# wget https://s3.amazonaws.com/ben.england/gvp-graph-javascript.tgz
+
+And unpack them with 
+
+\# tar zxvf  gvp-graph-javascript.tgz
+
+It contains a tarball containing some javascript libraries that are used by the HTML file above and provide common code to read CSV files and produce graphs using the nvd3 library.  This code comes from the pbench project at:
+
+https://github.com/distributed-system-analysis/pbench
+
 These tools produce a subdirectory containing java-script graphs that can be viewed with a web browser, as well as .csv-format files that can be loaded into a spreadsheet, for example.  BTW, not everything works: e.g. the "Save as Image" button does not. Note also that the layout is crucial: the CSV subdirectory contains a
-symlink <code>static</code>, which points to the <code>static</code> subdirectory in the
-main directory (which is where the javascript tarball was unpacked). If you change that structure, then the javascript files may not be found: no graphs!
+symlink "static", which points to the "static" subdirectory in the
+main directory (which is where the javascript tarball was unpacked). If you change that structure, then the javascript files may not be found - you then will see no graphs.
 
 # server-side profiling
 
