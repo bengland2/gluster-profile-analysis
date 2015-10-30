@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2015-10-26 Mon 19:38 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<title></title>
+<meta  name="generator" content="Org-mode" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgheadline1">1. Introduction</a></li>
+<li><a href="#orgheadline6">2. Installation and use</a>
+<ul>
+<li><a href="#orgheadline2">2.1. Simplest installation possible - somewhere on the cluster</a></li>
+<li><a href="#orgheadline3">2.2. Simplest installation possible - on your own computer</a></li>
+<li><a href="#orgheadline4">2.3. More general installation (requires HTTP server)</a></li>
+<li><a href="#orgheadline5">2.4. Using ElasticSearch and Grafana - future direction</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline1" class="outline-2">
+<h2 id="orgheadline1"><span class="section-number-2">1</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+The extract-glvolprof.py program is meant to assist with visualizing the performance of
+a gluster volume, using the <code>gluster volume profile</code> command.
+</p>
+
+<p>
+It consists of three pieces:
+</p>
+
+<ul class="org-ul">
+<li>gvp.sh: a bash script which runs the above command periodically for a number
+of samples, storing the results in a file.</li>
+
+<li>extract_glvolprof.py: a python script that takes that output file
+and massages it into a form that can be used for visualization. One
+component of this is an HTMl file that can be viewed in a
+browser. The other is a bunch of CSV files containing the
+data. These files can also be used with a spreadsheet application if
+desired, to produce graphs that way.</li>
+
+<li>gvp-graph-javascript.tgz: a tarball containing some javascript
+libraries that are used by the HTML file above and provide common
+code to read CSV files and produce graphs using the nvd3 library.</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline6" class="outline-2">
+<h2 id="orgheadline6"><span class="section-number-2">2</span> Installation and use</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-orgheadline2" class="outline-3">
+<h3 id="orgheadline2"><span class="section-number-3">2.1</span> Simplest installation possible - somewhere on the cluster</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Copy the scripts to some directory in the cluster, unpack the tarball
+in the same directory.  Run the gvp.sh script. As an illustration,
+let's say we want to run it every 10 seconds and 12 iterations
+(roughly two minutes of operation) - in practice, you might want to
+do that periodically, perhaps in a cron job, in order to see the behavior
+of the cluster over time:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-shell">./gvp.sh 10 12
+</pre>
+</div>
+<p>
+By default, the output file is called <code>gvp.log</code>. Then run the extract script
+on that output file:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-shell">python extract_glvolprof.py gvp.log
+</pre>
+</div>
+<p>
+The output (a bunch of CSV files and an HTML summary page) is placed in
+a subdirectory called <code>gvp.log_csvdir</code>.
+</p>
+<p>
+since we use pbench javascript graphing, then
+column 1 in the .csv is always the timestamp in milliseconds when
+that sample took place.  This can be disabled with the environment variable
+SKIP_PBENCH_GRAPHING.
+
+the stat types are:
+</p>
+<li> pct-lat - percentage latency consumed by this FOP (file operation) </li>
+<li> avg-lat - average latency (usec) </li>
+<li> min-lat - minimum latency (usec) </li>
+<li> max-lat - maximum latency (usec) </li>
+<li>call-rate - how many FOP requests have been processed per second</li>
+<p>
+for each category, there are several kinds of .csv files produced.
+For each FOP + stat type, we show per-brick results and results across all bricks.
+For each stat type, across all bricks, we show FOP stats together in vol*allfop.csv files.
+We also show read/write traffic by brick in MBps*bricks.csv files.
+Finally we show read/write traffic for the entire volume in
+MBps*volume.csv files.
+</p>
+<p>
+To see the graphs, fire up a browser and point it to the URL that the extract
+script printed:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-shell">firefox gvp.log_csvdir/gvp-graphs.html
+</pre>
+</div>
+<p>
+BTW, not everything works: e.g. the "Save as Image" button does not. Note
+also that the layout is crucial: the CSV subdirectory contains a
+symlink <code>static</code>, which points to the <code>static</code> subdirectory in the
+main directory (which is where the javascript tarball was
+unpacked). If you change that structure, then the javascript files may
+not be found: no graphs!
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline3" class="outline-3">
+<h3 id="orgheadline3"><span class="section-number-3">2.2</span> Simplest installation possible - on your own computer</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Alternatively, install everything as above somewhere on your own computer.
+Copy only the <code>gvp.sh</code> script to the cluster and run it there, then copy
+the <code>gvp.log</code> file back to your computer and process it locally as above.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline4" class="outline-3">
+<h3 id="orgheadline4"><span class="section-number-3">2.3</span> More general installation (requires HTTP server)</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+For more general access, you might want to set up an HTTP server, either
+in the cluster itself or on some other accessible machine.
+</p>
+
+<p>
+The idea is to run the <code>gvp.sh</code> script in the cluster and copy the
+<code>gvp.log</code> file (probably renaming it using a timestamp to keep the
+name unique) to the HTTP server, under the document root directory.
+The extraction script can then be run on it to produce the CSV
+subdirectory under the server's document root:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-shell">python extract_glvolprof.py /var/www/html/gvp/gvp.log.TIMESTAMP
+</pre>
+</div>
+
+<p>
+You can then view the results from a browser running elsewhere using
+a URL like
+</p>
+<pre class="example">
+http://SERVER.DOMAIN/gvp/gvp.log.TIMESTAMP_csvdir/gvp-graphs.html
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgheadline5" class="outline-3">
+<h3 id="orgheadline5"><span class="section-number-3">2.4</span> Using ElasticSearch and Grafana - future direction</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+It's also possible to index the CSV files into ElasticSearch and use
+Grafana for the visualization. That's probably the most flexible solution,
+but it would need some additional work, not included here.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Created: 2015-10-26 Mon 19:38</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
