@@ -6,14 +6,15 @@ tools for converting gluster profile data into spreadsheet format and javascript
 The extract-glvolprof.py program is meant to assist with visualizing the performance of
 a gluster volume, using the gluster volume profile command.  One of key concepts in Gluster is the FOP (File Operation).  This is the unit of work passed from the application down through the Gluster translator stack until it reaches the storage device.  Important FOP Types include:
 
-- CREATE - create a file
-- UNLINK - delete a file
-- OPEN - open a file for read/write access
-- WRITE - write data to a file
-- READ - read data from a file
-- LOOKUP - lookup a file
-- MKDIR - create a directory
-- RMDIR - remove a directory
+* CREATE - create a file
+* UNLINK - delete a file
+* OPEN - open a file for read/write access
+* WRITE - write data to a file
+* READ - read data from a file
+* LOOKUP - lookup a file
+* MKDIR - create a directory
+* RMDIR - remove a directory
+* others TBS
 
 Statistic types produced per FOP type by these scripts include:
 
@@ -62,7 +63,9 @@ on that output file:
 
 \# python extract-gl-client-prof.py gvp.log
 
+The output (a bunch of CSV files and an HTML summary page) is placed in a subdirectory called gvp.log\_csvdir. 
 
+To see the graphs, fire up a browser and point it to the URL that the extract script printed, pointing to gvp-graphs.html .
 
 # client-side profiling
 
@@ -81,11 +84,11 @@ on that output file:
 \# python extract-gl-client-prof.py gvp.log
 
 The output (a bunch of CSV files and an HTML summary page) is placed in
-a subdirectory called gvp.log_csvdir.  In order to take advantage of pbench javascript graphing, then
-column 1 in the .csv is always the timestamp in milliseconds when
-that sample took place.  This can be disabled by defining the environment variable
-SKIP_PBENCH_GRAPHING.
+a subdirectory called gvp.log_csvdir.  
 
 To see the graphs, fire up a browser and point it to the URL that the extract
-script printed:
+script printed, pointing to gvp-client-graphs.html
 
+# implementation notes
+
+In order to take advantage of pbench javascript graphing, then column 1 in the .csv is always the timestamp in milliseconds when that sample took place. This can be disabled by defining the environment variable SKIP\_PBENCH\_GRAPHING.
