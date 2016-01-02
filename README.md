@@ -58,12 +58,12 @@ Copy the scripts to some Gluster server in your cluster, (i.e. where you can run
 do that periodically, perhaps in a cron job, in order to see the behavior
 of the cluster over time.
 
-\# ./gvp.sh 60 10
+\# ./gvp.sh [VOLNAME] 10 60
 
 Then run the extract script
 on that output file:
 
-\# python extract-gl-client-prof.py gvp.log
+\# python extract-glvolprof.py gvp.log
 
 The output (a bunch of CSV files and an HTML summary page) is placed in a subdirectory called gvp.log\_csvdir. 
 
