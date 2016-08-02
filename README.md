@@ -78,15 +78,16 @@ Copy the scripts to some directory on your client (i.e. where mountpoint is), an
 do that periodically, perhaps in a cron job, in order to see the behavior
 of the cluster over time.
 
-\# ./gvp-client.sh 10 12
+\# ./gvp-client.sh [VOLNAME] [MOUNTPOINT] [SAMPLE-AMOUNT] [SAMPLE-DURATION-IN-SEC]
+\# ./gvp-client.sh vol1 /rhgs/client/vol1 12 10
 
-By default, the output file is called <code>gvp.log</code>. Then run the extract script
+By default, the output file is called <code>gvp-client-[Timestamp].log</code> and saved in /var/tmp/. Then run the extract script
 on that output file:
 
-\# python extract-gl-client-prof.py gvp.log
+\# python extract-gl-client-prof.py /var/tmp/gvp-client-[Timestamp].log
 
 The output (a bunch of CSV files and an HTML summary page) is placed in
-a subdirectory called gvp.log_csvdir.  
+a subdirectory in /var/tmp named similar to the supplied log file.  
 
 To see the graphs, fire up a browser and point it to the URL that the extract
 script printed, pointing to gvp-client-graphs.html
