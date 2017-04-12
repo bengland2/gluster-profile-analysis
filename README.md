@@ -16,13 +16,7 @@ Where all latencies are in units of microseconds.
 
 The profiling tools consist of a collection and extraction script.  Typically you run the collection script to collect the profile data on a Gluster client or server, and then copy the file to your local system to run the extraction tool, which is just a python text processing script and should run anywhere.
 
-To install, after cloning this repo, pull this file into the same directory:
-
-\# wget https://s3.amazonaws.com/ben.england/gvp-graph-javascript.tgz
-
-And unpack them with 
-
-\# tar zxvf  gvp-graph-javascript.tgz
+To install, after cloning this repo, get the javascript for the graphs from the [pbench repo](https://github.com/distributed-system-analysis/pbench) and run something like [this script](https://github.com/distributed-system-analysis/pbench/blob/master/web-server/deploy.example.bash).
 
 It contains a tarball containing some javascript libraries that are used by the HTML file above and provide common code to read CSV files and produce graphs using the nvd3 library.  This code comes from the pbench project at:
 
